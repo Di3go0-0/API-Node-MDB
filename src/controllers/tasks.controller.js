@@ -1,10 +1,9 @@
 import Task from "../models/task.model.js";
 
-
 export const getTasks = async (req, res) => {
   const tasks = await Task.find({
-    user: req.user.id   //trae solo las tareas del usuario logueado
-  }).populate('user') //trae los datos del usuario
+    user: req.user.id, //trae solo las tareas del usuario logueado
+  }).populate("user"); //trae los datos del usuario
   res.json(tasks);
 };
 
@@ -15,14 +14,14 @@ export const createTask = async (req, res) => {
     title,
     description,
     date,
-    user : req.user.id
+    user: req.user.id,
   });
   const savedTask = await newTask.save();
   res.json(savedTask);
 };
 
 export const getTask = async (req, res) => {
-  const task = await Task.findById(req.params.id ).populate('user'); //trae los datos del usuario
+  const task = await Task.findById(req.params.id).populate("user"); //trae los datos del usuario
   if (!task) return res.status(404).json({ message: "Task not found" });
   res.json(task);
 };
