@@ -1,0 +1,6 @@
+# agrega en el git ignore el el pagckage-lock.json y node_modules
+# Ignorar el archivo package-lock.json
+package-lock.json
+
+# Ignorar la carpeta node_modules
+node_modules/
